@@ -8,7 +8,7 @@ import sys
 @click.option("--password", envvar='REGISTRY_PWD', prompt="Password", required=True, help="Password for docker registry")
 @click.option("--image-name", envvar='IMAGE_NAME', prompt="Image", required=True, help="Image for docker registry")
 @click.option("--image-version", envvar='IMAGE_VERSION', prompt="Version", required=True, help="Version for docker registry")
-def main(registry_url, user, password, image_name, image_version):
+def main(registry_url, user, password, image_name, image_version):    
 
     try:        
         r = requests.get('%s/v2/%s/tags/list' % (registry_url, image_name), auth=(user, password))
